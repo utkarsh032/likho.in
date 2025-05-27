@@ -1,8 +1,13 @@
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-2xl">likho.in</h1>
-    </div>
+    <>
+      <section className="special-container pattern">
+        <h1 className="heading ">Pitch Your Startup,<br />Connect with enterpenur</h1>
+
+        <p className="sub-heading">Submit Ideas, Votes on Pitches, and Get Noticed</p>
+
+      </section>
+    </>
   );
 }
