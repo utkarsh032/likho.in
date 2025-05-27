@@ -1,27 +1,212 @@
 @import "tailwindcss";
 
 @theme {
-  --background: #171717;
+  /* 🎨 COLORS */
+  --color-background: #171717;
+  --color-foreground: #f5f5f5;
+  --color-muted: #404040;
+  --color-muted-foreground: #a3a3a3;
 
-  --color-primary-50: #7f7f7f;
-
+  /* Primary Color Scale */
+  --color-primary-50: #f0f9ff;
   --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
   --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #082f49;
 
-  --color-secondary-700: #0284c7;
+  /* Secondary Color Scale */
+  --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #94a3b8;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1e293b;
+  --color-secondary-900: #0f172a;
 
-  --color-primary-800: #283057;
+  /* Accent Colors */
+  --color-accent: #0284c7;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  /* Neutral Grays */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
 
   /* 🔤 FONTS */
-  --font-primary: ["var(--font-work-sans)"];
+  --font-family-primary: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  /* 📏 SPACING */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
 
   /* 🧱 SHADOWS */
-  ---shadow-boxShadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-custom: 0 2px 10px rgba(0, 0, 0, 0.05);
+
+  /* 🔘 BORDER RADIUS */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  /* 🎭 ANIMATIONS */
+  --animate-duration-fast: 150ms;
+  --animate-duration-normal: 250ms;
+  --animate-duration-slow: 350ms;
+
+  /* 📱 BREAKPOINTS */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
+/* 🌐 GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-family-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🎯 UTILITY CLASSES */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.transition-standard {
+  transition: all var(--animate-duration-normal) ease-in-out;
+}
+
+/* 🎨 CUSTOM COMPONENT STYLES */
+.btn-primary {
+  background-color: var(--color-primary-600);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--animate-duration-normal) ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-600);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-primary-600);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--animate-duration-normal) ease-in-out;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-600);
+  color: white;
+}
+
+.card {
+  background-color: var(--color-gray-800);
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-custom);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-md);
+  background-color: var(--color-gray-800);
+  color: var(--color-foreground);
+  font-size: 1rem;
+  transition: all var(--animate-duration-normal) ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary-600);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+}
+
+/* 📱 RESPONSIVE UTILITIES */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+/* 🌙 DARK MODE OPTIMIZATIONS */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* 🎭 SMOOTH ANIMATIONS */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--animate-duration-fast);
+  }
 }
