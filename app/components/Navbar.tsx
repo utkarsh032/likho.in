@@ -11,12 +11,12 @@ export default async function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <div className="flex items-center transition-transform duration-200">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#e0f2fe] text-[#0284c7]">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-100 text-primary-700">
               <FaFeather size={20} />
             </div>
             <div className="ml-1 flex items-baseline">
-              <span className="font-bold text-2xl text-[#0284c7]">L</span>
-              <span className="font-semibold text-lg text-gray-800">ikho.in</span>
+              <span className="font-bold text-2xl text-primary-700">L</span>
+              <span className="font-semibold text-lg text-primary-800">ikho.in</span>
             </div>
           </div>
         </Link>
@@ -28,7 +28,7 @@ export default async function Navbar() {
               <>
                 <Link
                   href='/startup/create'
-                  className="px-4 py-2 text-gray-700 hover:text-[#0284c7] hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium"
+                  className="px-4 py-2 text-primary-800 hover:text-secondary-700 hover:bg-gray-50 rounded-md transition-colors duration-200 font-medium"
                 >
                   Create
                 </Link>
@@ -39,7 +39,7 @@ export default async function Navbar() {
                 }}>
                   <button
                     type="submit"
-                    className="px-4 py-2 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors duration-200 font-medium"
+                    className="px-4 py-2 text-primary-800 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors duration-200 font-medium"
                   >
                     Logout
                   </button>
@@ -48,7 +48,7 @@ export default async function Navbar() {
 
                 <Link
                   href={`/user/${session?.id}`}
-                  className="flex items-center gap-2 px-3 py-2 bg-[#0284c7] text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 font-medium"
+                  className="flex items-center gap-2 px-3 py-2 bg-secondary-700 text-white rounded-md hover:bg-primary-700 transition-colors duration-200 font-medium"
                 >
                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">
                     {session?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
@@ -63,7 +63,7 @@ export default async function Navbar() {
               }}>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-[#0284c7] text-white rounded-md hover:bg-[#0369a1] transition-colors duration-200 font-medium flex items-center gap-2"
+                  className="px-6 py-2 bg-secondary-700 text-white rounded-md hover:bg-primary-700 transition-colors duration-200 font-medium flex items-center gap-2"
                 >
                   Login
                 </button>
