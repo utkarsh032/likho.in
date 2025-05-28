@@ -4,9 +4,12 @@ import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Image from 'next/image';
 import { Button } from './ui/button';
+import { Author, Startup } from '@/sanity/types';
+
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author }
 
 export default function StartupCard({ post }: { post: StartupTypeCard }) {
-  const { _createdAt, views, author: { _id: authorId, name }, _id, description, image, category, title } = post
+  const { _createdAt, views, author, _id, description, image, category, title } = post
 
   return (
     <li className="startup-card group">
@@ -23,15 +26,15 @@ export default function StartupCard({ post }: { post: StartupTypeCard }) {
 
       <div className='flex justify-between items-center mt-5 gap-5'>
         <div className='flex-1'>
-          <Link href={`/user/${authorId}`}>
-            <p className='text-sm text-muted-foreground'>{name}</p>
+          <Link href={`/user/${author?.id}`}>
+            <p className='text-sm text-muted-foreground'>{author?.name}</p>
           </Link>
           <Link href={`/startup/${_id}`}>
             <p className='text-lg font-semibold hover:underline'>{title}</p>
           </Link>
         </div>
 
-        <Link href={`/user/${authorId}`}>
+        <Link href={`/user/${author?.id}`}>
           <Image
             src='https://placehold.co/48*48'
             alt='placehold'
