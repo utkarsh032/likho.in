@@ -187,8 +187,8 @@ body {
 
 /* Placeholder styling */
 .search-input::placeholder {
-  font-weight: 600;
-  color: #f5f5f5;
+  font-weight: 500;
+  color: #A9A9A9;
 }
 
 @media (min-width: 640px) {
@@ -208,6 +208,112 @@ body {
   background-position: center;
   background-repeat: repeat-x;
 }
+
+.section_container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card_grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+/* Responsive columns */
+@media (min-width: 640px) {
+  .card_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .card_grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.no-result {
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+
+/* StartUp Card */
+.startup-card {
+  background-color: white;
+  border: 5px solid black;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  border-radius: 22px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.startup-card:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-100);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.startup-card_date {
+  font-weight: 500;
+  font-size: 16px;
+  background-color: var(--primary-100);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.startup-card:hover .startup-card_date {
+  background-color: var(--white-100);
+}
+
+.startup-card_desc {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--black-100);
+  margin: 0.75rem 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+.startup-card_img {
+  width: 100%;
+  height: 164px;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+}
+
+.startup-card_btn {
+  border-radius: 9999px;
+  background-color: var(--black-200);
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+}
+
+.startup-card_skeleton {
+  width: 100%;
+  height: 24rem;
+  border-radius: 22px;
+  background-color: #a1a1aa;
+}
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -320,6 +426,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

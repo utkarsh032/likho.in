@@ -3,9 +3,8 @@ import { FaSearch } from "react-icons/fa"
 
 export default function SearchForm({ query }: { query?: string }) {
 
-
   return (
-    <form action='/' scroll={false} className='search-form'>
+    <form action='/' className='search-form'>
       <input name="query" defaultValue={query} className="search-input" placeholder="Search Here..." />
 
       <div className="flex gap-2">
