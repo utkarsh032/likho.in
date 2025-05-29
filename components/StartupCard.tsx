@@ -9,13 +9,22 @@ import { Author, Startup } from '@/sanity/types';
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author }
 
 export default function StartupCard({ post }: { post: StartupTypeCard }) {
-  const { _createdAt, views, author, title, category, image, description, } = post
-  const { bio, image: authorImage, name, _id } = author
+  const {
+    _createdAt,
+    views,
+    author,
+    title,
+    category,
+    _id,
+    image,
+    description,
+  } = post;
 
-  console.log(_id)
+
+  console.log(post)
 
   return (
-    <li key={_id} className="startup-card group">
+    <li className="startup-card group">
       <div className="flex justify-between">
         <p className="startup_card_date">
           {formatDate(_createdAt)}
@@ -29,7 +38,7 @@ export default function StartupCard({ post }: { post: StartupTypeCard }) {
 
       <div className='flex justify-between items-center mt-5 gap-5'>
         <div className='flex-1'>
-          <Link href={`/user/${author?.id}`}>
+          <Link href={`/user/${author?._id}`}>
             <p className='text-sm text-muted-foreground'>{author?.name}</p>
           </Link>
           <Link href={`/startup/${_id}`}>
@@ -37,7 +46,7 @@ export default function StartupCard({ post }: { post: StartupTypeCard }) {
           </Link>
         </div>
 
-        <Link href={`/user/${author?.id}`}>
+        <Link href={`/user/${author?._id}`}>
           <Image
             src='https://placehold.co/48*48'
             alt='placehold'
