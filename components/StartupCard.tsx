@@ -21,8 +21,6 @@ export default function StartupCard({ post }: { post: StartupTypeCard }) {
   } = post;
 
 
-  console.log(post)
-
   return (
     <li className="startup-card group">
       <div className="flex justify-between">
