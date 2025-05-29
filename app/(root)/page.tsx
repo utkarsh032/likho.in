@@ -8,6 +8,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   const query = (await searchParams).query;
   const params = { search: query || null }
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
+  console.log(posts)
 
   return (
     <>
@@ -28,8 +29,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
 
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-            posts.map((post: StartupTypeCard) => (
-              <StartupCard key={post?._id} post={post} />
+            posts.map((post: StartupTypeCard, index) => (
+              <StartupCard key={post?._id ?? `startup-${index}`} post={post} />
             ))
           ) : (
             <p className="no-results">No startups found</p>
@@ -37,7 +38,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         </ul>
 
       </section>
-
       {/* SanityLive */}
       <SanityLive />
     </>

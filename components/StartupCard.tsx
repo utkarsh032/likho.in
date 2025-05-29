@@ -9,10 +9,13 @@ import { Author, Startup } from '@/sanity/types';
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author }
 
 export default function StartupCard({ post }: { post: StartupTypeCard }) {
-  const { _createdAt, views, author, _id, description, image, category, title } = post
+  const { _createdAt, views, author, title, category, image, description, } = post
+  const { bio, image: authorImage, name, _id } = author
+
+  console.log(_id)
 
   return (
-    <li className="startup-card group">
+    <li key={_id} className="startup-card group">
       <div className="flex justify-between">
         <p className="startup_card_date">
           {formatDate(_createdAt)}
