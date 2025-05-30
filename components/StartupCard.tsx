@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
-import Image from 'next/image';
+// import Image from 'next/image';
 import { Button } from './ui/button';
 import { Author, Startup } from '@/sanity/types';
 
@@ -45,7 +45,7 @@ export default function StartupCard({ post }: { post: StartupTypeCard }) {
         </div>
 
         <Link href={`/user/${author?._id}`}>
-          <Image
+          <img
             src={author?.image}
             alt={author?.name}
             width={48}

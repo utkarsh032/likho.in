@@ -14,6 +14,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
 
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params })
 
+
   return (
     <>
       {/* Special Container */}
