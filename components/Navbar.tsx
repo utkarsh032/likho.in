@@ -1,7 +1,9 @@
 import { auth, signOut, signIn } from '@/auth'
+import { BadgePlus, LogOut } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
-import { FaFeather, FaGithub, FaPlus, FaSignOutAlt } from 'react-icons/fa'
+import { FaFeather, FaGithub, FaSignOutAlt } from 'react-icons/fa'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 export default async function Navbar() {
   const session = await auth()
@@ -30,8 +32,10 @@ export default async function Navbar() {
                 href='/startup/create'
                 className="flex items-center gap-2 px-4 py-2 text-primary-800 hover:text-secondary-700 hover:bg-primary-50 rounded-lg transition-all duration-200 font-medium hover:shadow-sm border border-transparent hover:border-primary-200"
               >
-                <FaPlus size={14} />
-                Create
+                <span className='max-sm:hidden flex items-center gap-4'><BadgePlus size={14} />
+                  Create</span>
+                <BadgePlus className='size-6 sm:hidden' />
+
               </Link>
 
               <form action={async () => {
@@ -42,8 +46,8 @@ export default async function Navbar() {
                   type="submit"
                   className="flex items-center gap-2 px-4 py-2 text-primary-800 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200 font-medium hover:shadow-sm border border-transparent hover:border-red-200"
                 >
-                  <FaSignOutAlt size={14} />
-                  Logout
+                  <span className='max-sm:hidden flex items-center'> <FaSignOutAlt size={14} /> Logout</span>
+                  <LogOut className='size-6 sm:hidden text-red-500' />
                 </button>
               </form>
 
@@ -51,9 +55,21 @@ export default async function Navbar() {
                 href={`/user/${session?.id}`}
                 className="flex items-center gap-2 px-3 py-2 bg-secondary-700 text-white rounded-lg hover:bg-primary-700 transition-all duration-200 font-medium hover:shadow-md hover:scale-105 border border-secondary-700 hover:border-primary-700"
               >
-                <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold ring-1 ring-white/30">
-                  {session?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
-                </div>
+                <Avatar className="size-10">
+                  {session?.user?.image ? (
+                    <AvatarImage
+                      src={session.user.image}
+                      alt={session.user.name || ''}
+                    />
+                  ) : (
+                    <AvatarFallback>
+                      {session?.user?.name?.charAt(0)?.toUpperCase() || 'U'}
+                    </AvatarFallback>
+                  )}
+                </Avatar>
+
+
+
                 <span className="hidden sm:inline">{session?.user?.name}</span>
               </Link>
             </>

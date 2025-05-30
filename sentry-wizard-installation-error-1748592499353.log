@@ -1,0 +1,21 @@
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: likho.in@0.1.0
+npm error Found: next@15.4.0-canary.57
+npm error node_modules/next
+npm error   next@"^15.4.0-canary.56" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer next@"^13.2.0 || ^14.0 || ^15.0.0-rc.0" from @sentry/nextjs@9.24.0
+npm error node_modules/@sentry/nextjs
+npm error   @sentry/nextjs@"9.24.0" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error C:\Users\utkar\AppData\Local\npm-cache\_logs\2025-05-30T08_08_12_008Z-eresolve-report.txt
+npm error A complete log of this run can be found in: C:\Users\utkar\AppData\Local\npm-cache\_logs\2025-05-30T08_08_12_008Z-debug-0.log

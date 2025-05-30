@@ -46,8 +46,8 @@ export default function StartupCard({ post }: { post: StartupTypeCard }) {
 
         <Link href={`/user/${author?._id}`}>
           <Image
-            src='https://placehold.co/48*48'
-            alt='placehold'
+            src={author?.image}
+            alt={author?.name}
             width={48}
             height={48}
             className='rounded-full'
